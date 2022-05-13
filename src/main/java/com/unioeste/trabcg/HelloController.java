@@ -28,13 +28,13 @@ public class HelloController {
     }
 
     public void buttonselect() {
-        Esfera e = new Esfera(100, 8, 100);
+        Esfera e = new Esfera(100, 8, 7);
         e.criaEsfera();
         GraphicsContext gc = canvas.getGraphicsContext2D();
 
 //        gc.moveTo(200, 200);
 //        gc.lineTo(200,200);
-        e.translada();
+        e.translada(100,0,0);
 
         for(Aresta a : e.arestas){
             a.draw(gc);

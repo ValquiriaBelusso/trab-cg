@@ -41,46 +41,32 @@ public class Esfera {
 
         //código de rotação
         for(int i=0; i<paralelos; i++){
-            Vertice novo = new Vertice();
-            novo.x=(anterior.x*cose)-(anterior.y*seno);
-            novo.y=(anterior.x*seno)+(anterior.y*cose);
             if(i==(paralelos-1)){
                 Aresta a = new Aresta(anterior,vx);
                 arestas.add(a);
             }else{
+                Vertice novo = new Vertice();
+                novo.x=(anterior.x*cose)-(anterior.y*seno);
+                novo.y=(anterior.x*seno)+(anterior.y*cose);
                 Aresta a = new Aresta(anterior,novo);
                 arestas.add(a);
+                vertices.add(a.ini);
+                anterior=novo;
             }
 
-            anterior=novo;
-            vertices.add(novo);
         }
 
 
     }
 
-    public void translada(){
-
-        for (Aresta a : arestas){
-            System.out.println("---------");
-            System.out.println(a.ini);
-            System.out.println(a.fim);
-            System.out.println("---------");
-        }
+    public void translada(double dx, double dy, double dz){
 
         for(Aresta a : arestas){
-            a.ini.x=a.ini.x+100;
-            a.ini.y=a.ini.y+100;
-            a.fim.x=a.fim.x+100;
-            a.fim.y=a.fim.y+100;
+            a.ini.x=+dx;
+            a.ini.y=+dy;
+            a.ini.z=+dz;
         }
 
-        for (Aresta a : arestas){
-            System.out.println("---------");
-            System.out.println(a.ini);
-            System.out.println(a.fim);
-            System.out.println("---------");
-        }
     }
 
 
